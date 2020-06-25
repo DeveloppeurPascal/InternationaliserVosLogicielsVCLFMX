@@ -1,0 +1,9 @@
+inherited Fiche2: TFiche2
+  Caption = 'FormTraduite4'
+  DesignerMasterStyle = 0
+  object Label1: TLabel
+    Position.X = 264.000000000000000000
+    Position.Y = 232.000000000000000000
+    Text = 'Label1'
+  end
+end

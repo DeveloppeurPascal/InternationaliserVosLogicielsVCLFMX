@@ -1,0 +1,83 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  DesignerMasterStyle = 0
+  object StringGrid1: TStringGrid
+    Align = Client
+    CanFocus = True
+    ClipChildren = True
+    Size.Width = 640.000000000000000000
+    Size.Height = 455.000000000000000000
+    Size.PlatformDefault = False
+    RowCount = 0
+    Viewport.Width = 636.000000000000000000
+    Viewport.Height = 430.000000000000000000
+  end
+  object BindNavigator1: TBindNavigator
+    Align = Bottom
+    Position.Y = 455.000000000000000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    DataSource = BindSourceDB1
+    xRadius = 4.000000000000000000
+    yRadius = 4.000000000000000000
+  end
+  object FDMemTable1: TFDMemTable
+    BeforeOpen = FDMemTable1BeforeOpen
+    FieldDefs = <>
+    IndexDefs = <>
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    StoreDefs = True
+    Left = 472
+    Top = 160
+    object FDMemTable1id: TStringField
+      FieldName = 'id'
+      Size = 50
+    end
+    object FDMemTable1fr: TMemoField
+      FieldName = 'fr'
+      BlobType = ftMemo
+    end
+    object FDMemTable1en: TMemoField
+      FieldName = 'en'
+      BlobType = ftMemo
+    end
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = FDMemTable1
+    ScopeMappings = <>
+    Left = 536
+    Top = 248
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Liaisons rapides'
+      DataSource = BindSourceDB1
+      GridControl = StringGrid1
+      Columns = <>
+    end
+  end
+  object FDStanStorageBinLink1: TFDStanStorageBinLink
+    Left = 152
+    Top = 176
+  end
+end
