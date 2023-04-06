@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{1F03F13A-C2C6-4202-B888-C97BB1985B00}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="GestionTraductions\GestionTraductions.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ProgrammeUtilisateur\ProgrammeUtilisateur.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="GestionTraductions">
+        <MSBuild Projects="GestionTraductions\GestionTraductions.dproj"/>
+    </Target>
+    <Target Name="GestionTraductions:Clean">
+        <MSBuild Projects="GestionTraductions\GestionTraductions.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GestionTraductions:Make">
+        <MSBuild Projects="GestionTraductions\GestionTraductions.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProgrammeUtilisateur">
+        <MSBuild Projects="ProgrammeUtilisateur\ProgrammeUtilisateur.dproj"/>
+    </Target>
+    <Target Name="ProgrammeUtilisateur:Clean">
+        <MSBuild Projects="ProgrammeUtilisateur\ProgrammeUtilisateur.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProgrammeUtilisateur:Make">
+        <MSBuild Projects="ProgrammeUtilisateur\ProgrammeUtilisateur.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="GestionTraductions;ProgrammeUtilisateur"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="GestionTraductions:Clean;ProgrammeUtilisateur:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="GestionTraductions:Make;ProgrammeUtilisateur:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
